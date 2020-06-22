@@ -3,15 +3,22 @@
   "description": "add functionality for a better medium reading exprience",
   "version": "0.0.2",
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "16": "static/icon16.png",
+    "48": "static/icon48.png",
+    "128": "static/icon128.png"
   },
   "background": {
     "persistent": true,
     "scripts": ["background.bundle.js"]
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["main.bundle.js"]
+    }
+  ],
   "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": ["static/*"],
   "manifest_version": 2
 }
