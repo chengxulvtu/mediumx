@@ -7,8 +7,8 @@ const Entry = () => {
   return (
     <div>
       <div className={classNames(styles.header)}>
-        Finding <b>Medium-Unlimited</b> extension helpful? <br />
-        Please help spread the word!
+        Finding it helpful? 🍰 <br />
+        share with your friends 😘
       </div>
       <div className={classNames(styles.shareList)}>
         <div className={classNames(styles.shareIcon)}>{_getTwitterIcon()}</div>
@@ -27,11 +27,13 @@ const Entry = () => {
 };
 
 const _getShareContent = () => {
-  return "Read medium.com Membership articles for free. Use this browser extension - ";
+  return `Read medium.com Membership articles for free with a easy-to-use reader. 
+          Use this browser extension - `;
 };
 
 const _getShareUrl = source => {
-  const url = "https://github.com/manojVivek/medium-unlimited";
+  const url =
+    "https://chrome.google.com/webstore/detail/medium-enhanced-reader/ihpbajopffcgpecfkbmpkpkhfhcgfcdj";
   if (source) {
     return url + "?source=" + source;
   }
