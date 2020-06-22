@@ -4,7 +4,8 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "dev": "webpack --mode development  --watch",
+    "build": "webpack --mode production",
     "formate": "./node_modules/.bin/prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "git": "git add . && git commit -m",
     "postgit": "git pull && git push && git status"
