@@ -1,5 +1,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -28,6 +29,7 @@ module.exports = {
         { from: "static", to: "." },
         { from: "manifest.json", to: "manifest.json" }
       ]
-    })
+    }),
+    new CleanWebpackPlugin()
   ]
 };
