@@ -17,7 +17,7 @@
       "js": ["main.bundle.js"]
     }
   ],
-  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "storage"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "web_accessible_resources": ["static/*"],
   "manifest_version": 2
