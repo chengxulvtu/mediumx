@@ -1,9 +1,9 @@
 import React from "react";
 import classNames from "classnames";
 
-import styles from "./Entry.css";
+import styles from "./Media.css";
 
-const Entry = () => {
+const Media = () => {
   return (
     <div>
       <div className={classNames(styles.header)}>
@@ -198,4 +198,4 @@ const _getGplusIcon = () => {
   );
 };
 
-export default Entry;
+export default Media;

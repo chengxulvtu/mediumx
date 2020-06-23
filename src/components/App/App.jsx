@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Entry from "../Entry/Entry.jsx";
+import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
+import Setup from "../Setup/Setup.jsx";
+import Media from "../Media/Media.jsx";
 import classNames from "classnames";
 import styles from "./App.css";
 
@@ -40,16 +42,14 @@ const App = () => {
             [styles.hide]: !expanded
           })}
           onClick={() => {
-            console.log("收拢");
             setExpanded(false);
           }}
         >
-          <span className={classNames(styles.handCursor)}>&#x2715;</span>
+          <CancelRoundedIcon color="primary" />
         </div>
         <div
           className={classNames(styles.iconContainer)}
           onClick={() => {
-            console.log("展开");
             setExpanded(!expanded);
           }}
         >
@@ -77,7 +77,8 @@ const App = () => {
           [styles.hideBodyContent]: !expanded
         })}
       >
-        <Entry />
+        <Setup />
+        <Media />
       </div>
     );
   };
