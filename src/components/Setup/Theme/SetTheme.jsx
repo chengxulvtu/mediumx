@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   setThemeDark,
   setThemeDefault,
@@ -47,7 +47,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SetTheme = (...params) => {
+  const getTheme = useSelector(state => state.theme);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setSkin(getTheme);
+  }, []);
 
   const handleClick = text => {
     console.log(text);
@@ -61,13 +66,17 @@ const SetTheme = (...params) => {
     }
     try {
       const theme = themes[text];
-      document.body.style.backgroundColor = theme.backgroundColor;
-      document.body.style.color = theme.color;
-      console.log(typeof document.body.style.backgroundColor);
+      setSkin(theme);
       dispatch(action);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const setSkin = theme => {
+    const targetEl = document.querySelector("#root").firstChild;
+    targetEl.style.backgroundColor = theme.backgroundColor;
+    targetEl.style.color = theme.color;
   };
 
   const classes = useStyles();
