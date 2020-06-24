@@ -26,3 +26,7 @@ export const shiftToClassicStyle = makeActionCreator(
 export const shiftToMediumStyle = makeActionCreator(
   types.SHIFT_TO_MEDIUM_STYLE
 );
+
+export const setThemeDark = makeActionCreator(types.SET_THEME_DARK);
+export const setThemeEye = makeActionCreator(types.SET_THEME_EYE);
+export const setThemeDefault = makeActionCreator(types.SET_THEME_DEFAULT);

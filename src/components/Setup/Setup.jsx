@@ -1,10 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { shiftToClassicStyle, shiftToMediumStyle } from "../../store/actions";
 import { makeStyles } from "@material-ui/core/styles";
+import SetTheme from "./Theme/SetTheme.jsx";
+import SetComment from "./Comment/SetComment.jsx";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import Switch from "@material-ui/core/Switch";
+
 import { deepPurple } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
@@ -23,32 +23,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500]
   },
-  themeContainer: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    "& > *": {
-      marginRight: "10px",
-      padding: "5px 0",
-      border: "1px solid #333;",
-      width: "72px",
-      borderRadius: "4px",
-      textAlign: "center",
-      cursor: "pointer"
-    }
-  },
-  darkTheme: {
-    color: "#eee",
-    backgroundColor: "#333"
-  },
-  eyeTheme: {
-    color: "#333",
-    backgroundColor: "#a8e6cf"
-  },
-  defaultTheme: {
-    color: "#333",
-    backgroundColor: "#eee"
-  },
   exportContainer: {
     display: "flex",
     justifyContent: "flex-start",
@@ -62,8 +36,7 @@ const useStyles = makeStyles(theme => ({
       textAlign: "center",
       cursor: "pointer"
     }
-  },
-  goProBtn: {}
+  }
 }));
 
 const Login = (...params) => {
@@ -77,50 +50,6 @@ const Login = (...params) => {
       ) : (
         <Button color="secondary">sign out</Button>
       )}
-    </div>
-  );
-};
-
-const SetTheme = (...params) => {
-  const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <span>Theme</span>
-      <div className={classes.themeContainer}>
-        <div className={classes.darkTheme}>Dark</div>
-        <div className={classes.eyeTheme}>Eye</div>
-        <div className={classes.defaultTheme}>Default</div>
-      </div>
-    </div>
-  );
-};
-
-const SetCommentSystem = (...params) => {
-  const isClassic = useSelector(state => state.comment.isClassicComment);
-  const dispatch = useDispatch();
-
-  const classes = useStyles();
-
-  const handleChange = event => {
-    let action;
-    if (isClassic) {
-      action = shiftToMediumStyle();
-    } else {
-      action = shiftToClassicStyle();
-    }
-    dispatch(action);
-  };
-
-  return (
-    <div className={classes.root}>
-      <span>Classic Comment System</span>
-      <Switch
-        checked={isClassic}
-        onChange={handleChange}
-        color="primary"
-        name="isClassic"
-        inputProps={{ "aria-label": "primary checkbox" }}
-      />
     </div>
   );
 };
@@ -155,7 +84,7 @@ export default function Setup() {
     <div>
       <Login isAuth={false} />
       <SetTheme />
-      <SetCommentSystem />
+      <SetComment />
       <ExportTo />
       <BatchExport />
     </div>
