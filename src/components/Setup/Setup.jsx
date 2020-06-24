@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { shiftToClassicStyle, shiftToMediumStyle } from "../../store/actions";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -94,12 +96,19 @@ const SetTheme = (...params) => {
 };
 
 const SetCommentSystem = (...params) => {
-  const [isClassic, setCommentSystem] = useState(isClassic);
+  const isClassic = useSelector(state => state.comment.isClassicComment);
+  const dispatch = useDispatch();
 
   const classes = useStyles();
 
   const handleChange = event => {
-    setCommentSystem(!isClassic);
+    let action;
+    if (isClassic) {
+      action = shiftToMediumStyle();
+    } else {
+      action = shiftToClassicStyle();
+    }
+    dispatch(action);
   };
 
   return (

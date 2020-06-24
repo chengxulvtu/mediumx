@@ -1,7 +1,9 @@
-import ReactDOM from "react-dom";
 import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { allowedDomain } from "./configs/domains";
 import { setForChromeStorage } from "./utils";
+import configureStore from "./store";
 import App from "./components/App/App.jsx";
 
 // 创建浮动按钮容器
@@ -70,7 +72,13 @@ function registerListeners() {
 }
 
 function _attachFloatingButton() {
-  ReactDOM.render(<App />, floatingButtonParent);
+  const store = configureStore();
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    floatingButtonParent
+  );
 }
 
 function _removeFloatingButton() {

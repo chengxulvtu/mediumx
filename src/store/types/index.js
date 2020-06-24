@@ -1,0 +1,5 @@
+export const SIGN_IN = "SIGN_IN";
+export const SIGN_OUT = "SIGN_OUT";
+
+export const SHIFT_TO_CLASSIC_STYLE = "SHIFT_TO_CLASSIC_STYLE";
+export const SHIFT_TO_MEDIUM_STYLE = "SHIFT_TO_MEDIUM_STYLE";
