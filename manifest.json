@@ -1,7 +1,7 @@
 {
   "name": "Medium Enhanced Reader",
   "description": "add amazing functionalities for a better medium reading exprience",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "icons": {
     "16": "static/icon16.png",
     "48": "static/icon48.png",
