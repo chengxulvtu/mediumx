@@ -40,6 +40,19 @@ function addGoogleFont() {
   document.head.appendChild(robotoFontLink);
 }
 
+// function addJquery() {
+//   const isOkay = detectValidDomain();
+//   if (!isOkay) {
+//     return false;
+//   }
+//   const jqueryEl = document.createElement("script");
+//   jqueryEl.setAttribute(
+//     "src",
+//     "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+//   );
+//   jqueryEl.setAttribute("defer", "");
+// }
+
 // 判断是否启用插件
 function detectValidDomain() {
   let isValidDomain;
