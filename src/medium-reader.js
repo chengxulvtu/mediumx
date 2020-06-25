@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { allowedDomain } from "./configs/domains";
-import { setForChromeStorage } from "./utils";
 import configureStore from "./store";
 import App from "./components/App/App.jsx";
 
@@ -13,9 +12,6 @@ createContainerEl();
 
 // 加载material ui字体
 addGoogleFont();
-
-// 判断是否有评论
-detectComments();
 
 // 挂载到容器元素上
 registerListeners();
@@ -52,8 +48,12 @@ function detectValidDomain() {
     let first = sourceDomain.indexOf("//");
     let last = sourceDomain.lastIndexOf("/*");
     let d = sourceDomain.substring(first + 2, last);
-    // medium首页不显示
-    if (window.location.href === "https://medium.com/") {
+    // medium首页不显示，原生的评论页不显示
+    if (
+      window.location.href === "https://medium.com/" ||
+      (window.location.href.indexOf("medium.com") > -1 &&
+        window.location.href.indexOf("responses/show") > -1)
+    ) {
       isValidDomain = false;
       return;
     }
@@ -86,15 +86,4 @@ function _attachFloatingButton() {
 
 function _removeFloatingButton() {
   ReactDOM.unmountComponentAtNode(floatingButtonParent);
-}
-
-function detectComments() {
-  const htmlStr = document.documentElement.innerHTML;
-  const isAvailable = htmlStr.indexOf('<span class="as">');
-  if (isAvailable > -1) {
-    console.log("medium comments available");
-    setForChromeStorage("isCommentsAvailable", true);
-  } else {
-    console.info("no comments");
-  }
 }

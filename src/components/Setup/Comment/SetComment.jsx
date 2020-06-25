@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   shiftToClassicStyle,
   shiftToMediumStyle
 } from "../../../store/actions";
+import {
+  removeOriginalReponseBtn,
+  recoverOriginalCommentSystem
+} from "./comment.service";
 import Switch from "@material-ui/core/Switch";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,11 +29,17 @@ const SetComment = (...params) => {
 
   const classes = useStyles();
 
+  useEffect(() => {
+    if (isClassic) removeOriginalReponseBtn();
+  }, []);
+
   const handleChange = event => {
     let action;
     if (isClassic) {
+      recoverOriginalCommentSystem();
       action = shiftToMediumStyle();
     } else {
+      removeOriginalReponseBtn();
       action = shiftToClassicStyle();
     }
     dispatch(action);

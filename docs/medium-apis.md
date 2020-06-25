@@ -2,6 +2,7 @@
 1. response 回复
 url: https://medium.com/_/api/posts/138729aa1028/responsesStream?filter=other
 method: GET
+postId: post页面可以通过url拿到
 result:
 ```
 {
@@ -160,6 +161,20 @@ result:
 }
 ```
 
-2. share 社交分享
-3. save 保存
-4. 评论
+2. send comment 评论
+url: https://medium.com/p/9bc6f0b0cd9c/publish
+payload: {"title":"","subtitle":"","metaDescription":"","latestRev":3}
+
+3. clap 鼓掌👏
+url: https://medium.com/_/api/posts/685d195d4193/claps
+method: POST
+payload: {"userId":"c9402e2371cb","clapIncrement":1}
+
+4. save 保存
+url: https://medium.com/p/685d195d4193/bookmarks
+method: PUT
+
+5. report
+url: https://medium.com/p/bf35688a031a/spam
+method: PUT
+payload: {"reason":"Spam","alsoBlockAuthor":false}

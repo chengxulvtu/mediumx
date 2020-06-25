@@ -1,0 +1,5 @@
+export const APP = "MEDIUM_ENHANCED_READER";
+export const COMMENT = APP + "_COMMENT";
+export const COMMENT_CONTAINER = COMMENT + "_CONTAINER";
+export const COMMENT_LINK = COMMENT + "_LINK";
+export const COMMENT_PLACEHOLDER = COMMENT + "_PLACEHOLDER";
