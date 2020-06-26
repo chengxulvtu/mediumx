@@ -6,7 +6,8 @@ import {
 } from "../../../store/actions";
 import {
   removeOriginalReponseBtn,
-  recoverOriginalCommentSystem
+  recoverOriginalCommentSystem,
+  getAllResponsesFromPost
 } from "./comment.service";
 import Switch from "@material-ui/core/Switch";
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,13 +31,17 @@ const SetComment = (...params) => {
   const classes = useStyles();
 
   useEffect(() => {
-    if (isClassic) removeOriginalReponseBtn();
+    if (isClassic) {
+      removeOriginalReponseBtn();
+      getAllResponsesFromPost();
+    }
   }, []);
 
   const handleChange = event => {
     let action;
     if (isClassic) {
       recoverOriginalCommentSystem();
+      getAllResponsesFromPost();
       action = shiftToMediumStyle();
     } else {
       removeOriginalReponseBtn();
@@ -54,6 +59,7 @@ const SetComment = (...params) => {
         color="primary"
         name="isClassic"
         inputProps={{ "aria-label": "primary checkbox" }}
+        disabled
       />
     </div>
   );

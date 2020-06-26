@@ -25,3 +25,13 @@ export const addStyle = (el, styles) => {
     el.style[key] = styles[key];
   }
 };
+
+/**
+ * 获取post id
+ */
+export const getPostIdFromUrl = () => {
+  const url = window.location.href;
+  const index = url.lastIndexOf("-");
+  const postId = url.slice(index + 1);
+  return postId;
+};

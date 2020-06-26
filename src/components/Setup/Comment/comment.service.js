@@ -7,7 +7,10 @@ import {
   removeCommentContainer
 } from "./commentContainer";
 import { COMMENT_LINK, COMMENT_PLACEHOLDER } from "../../../configs/namespace";
-import { stringToDom } from "../../../utils";
+import { stringToDom, getPostIdFromUrl } from "../../../utils";
+import { Requeset } from "../../../utils/request";
+
+const request = new Requeset();
 
 // 移除原来的response button
 export const removeOriginalReponseBtn = async () => {
@@ -43,4 +46,18 @@ export const recoverOriginalCommentSystem = async () => {
   // 移除评论区
   removeCommentContainer();
   containerEl.removeChild(placeholderEl);
+};
+
+export const getAllResponsesFromPost = async () => {
+  // 获取当前post id
+  const rootPostId = getPostIdFromUrl();
+  const url = `/_/api/posts/${rootPostId}/responsesStream?formate=json`;
+  const config = {
+    method: "GET",
+    contentType: "application/json",
+    accept: "application/json",
+    SecFetchSite: "same-origin"
+  };
+  const response = await request.fetchData(url, config);
+  console.log(response);
 };
