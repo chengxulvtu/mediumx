@@ -16,3 +16,12 @@ export const stringToDom = str => {
   temp.innerHTML = str;
   return temp.children[0];
 };
+
+/**
+ * 给元素添加样式 (jquery)
+ */
+export const addStyle = (el, styles) => {
+  for (const key in styles) {
+    el.style[key] = styles[key];
+  }
+};
