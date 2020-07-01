@@ -61,9 +61,7 @@ const App = () => {
             [styles.hideHeaderContent]: !expanded
           })}
         >
-          <span className={classNames(styles.nowrap)}>
-            Medium Enhanced Reader
-          </span>
+          <span className={classNames(styles.nowrap)}>MediumX</span>
         </div>
       </div>
     );

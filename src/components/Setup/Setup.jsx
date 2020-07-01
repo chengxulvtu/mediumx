@@ -72,7 +72,13 @@ const BatchExport = (...params) => {
   return (
     <div className={classes.root}>
       <span>Batch Export</span>
-      <Button variant="contained" color="primary">
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => {
+          window.location.href = "https://mediumx.jackofallcoding.tech/";
+        }}
+      >
         👉 Go pro
       </Button>
     </div>
