@@ -31,7 +31,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![MediumX Screen Shot][product-screenshot]](https://github.com/cnscorpions/mediumx/blob/master/static/screenshot-01.png)
+![MediumX Screen Shot](https://github.com/cnscorpions/mediumx/blob/master/static/screenshot-01.png)
 
 ### Built With
 This plugin is built with ❤️ & react.
