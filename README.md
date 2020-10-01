@@ -29,6 +29,11 @@
 
 ![MediumX Screen Shot](https://github.com/cnscorpions/mediumx/blob/master/static/screenshot-01.png)
 
+Features:
+- unblock Medium paywall for all readers
+- 3 basic theme (dark, eye and default) for medium article page
+- classic blog comment system
+
 ### Built With
 This plugin is built with ❤️ & react.
 
